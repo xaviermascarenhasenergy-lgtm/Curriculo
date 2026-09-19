@@ -153,22 +153,32 @@ section{padding:64px 0}
 .wave{position:absolute;left:26%;right:26%;top:100px;height:44px;opacity:.85;background:repeating-linear-gradient(90deg,transparent 0 3px,#27e7ff 3px 4px,transparent 4px 8px);mask-image:radial-gradient(ellipse,#000 0 42%,transparent 70%);animation:waveMove 1.2s linear infinite}
 .wave-label{position:absolute;left:50%;top:66px;transform:translateX(-50%);white-space:nowrap;color:#27e7ff;font-size:.95rem;letter-spacing:.14em;font-family:var(--font-display);font-weight:600}
 @keyframes waveMove{to{background-position:34px 0}}
-.jmodule{position:absolute;width:225px;min-height:120px;padding:20px 18px;background:linear-gradient(145deg,#061a23ee,#020c12ee);border:1px solid #27e7ff88;clip-path:polygon(0 0,83% 0,100% 18%,100% 82%,84% 100%,0 100%,0 18%);box-shadow:0 0 30px #27e7ff12;cursor:pointer;text-align:left;color:inherit;transition:.2s}
+.jmodule{position:absolute;width:225px;min-height:120px;padding:20px 18px;background:linear-gradient(145deg,#061a23ee,#020c12ee);border:1px solid #27e7ff88;clip-path:polygon(0 0,83% 0,100% 18%,100% 82%,84% 100%,0 100%,0 18%);box-shadow:0 0 30px #27e7ff12;cursor:pointer;text-align:left;color:inherit;text-decoration:none;display:block;transition:.2s}
 .jmodule:hover{box-shadow:0 0 34px #27e7ff44;transform:translateY(-2px)}
 .jmodule h3{font-size:.86rem;letter-spacing:.08em;margin:40px 0 5px;color:#e7fdff;font-family:var(--font-display);font-weight:700}
 .jmodule p{font-size:.66rem;color:#6f9ca7;margin:0;letter-spacing:.03em;font-family:var(--font-mono)}
 .jicon{position:absolute;top:14px;left:16px;width:38px;height:38px;border:1px solid #27e7ff88;border-radius:50%;display:grid;place-items:center;color:var(--cyan);font-size:1.15rem;box-shadow:0 0 18px #27e7ff18}
-.m1{left:20px;top:200px}.m2{left:20px;top:400px}
-.m4{right:20px;top:300px}
+.m1{left:20px;top:130px}.m2{left:20px;top:300px}.m3{left:20px;top:470px}
+.m4{right:20px;top:130px}.m5{right:20px;top:300px}.m6{right:20px;top:470px}
 .connector{position:absolute;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.6;transform-origin:left center}
-.c1{width:195px;left:260px;top:300px;transform:rotate(0deg)}
-.c2{width:200px;left:260px;top:490px;transform:rotate(-13deg)}
-.c4{width:195px;right:260px;top:400px;transform:rotate(180deg)}
+.c1{width:195px;left:260px;top:230px;transform:rotate(11deg)}
+.c2{width:200px;left:260px;top:400px;transform:rotate(-1deg)}
+.c3{width:195px;left:260px;top:565px;transform:rotate(-13deg)}
+.c4{width:195px;right:260px;top:230px;transform:rotate(169deg)}
+.c5{width:200px;right:260px;top:400px;transform:rotate(181deg)}
+.c6{width:195px;right:260px;top:565px;transform:rotate(193deg)}
 .core-wrap{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:370px;height:370px;display:grid;place-items:center}
 .core-wrap:before,.core-wrap:after{content:'';position:absolute;border:1px solid #27e7ff55;border-radius:50%;inset:5px;animation:spin 18s linear infinite}
 .core-wrap:after{inset:26px;border-style:dashed;animation:spin 11s linear infinite reverse}
-#jsphere{width:320px;height:320px;display:block}
-#jsphere.talking{filter:brightness(1.25)}
+.ring{position:absolute;border-radius:50%;border:9px solid transparent;border-top-color:#27e7ff;filter:drop-shadow(0 0 8px #27e7ff);animation:spin 5s linear infinite}
+.ring.r1{inset:36px}
+.ring.r2{inset:52px;border-width:4px;border-right-color:#00aeca;animation-duration:8s;animation-direction:reverse}
+.ring.r3{inset:72px;border-width:2px;border-left-color:#6af4ff;animation-duration:12s}
+.sphere{width:160px;height:160px;border-radius:50%;position:relative;background:radial-gradient(circle at 38% 30%,#d9ffff 0 1%,#62f0ff 3%,#0794b4 13%,#042b38 45%,#01080c 72%);box-shadow:0 0 30px #27e7ff,0 0 90px #27e7ff55,inset 0 0 40px #8dffff88;animation:spherePulse 2.8s ease-in-out infinite}
+.sphere:before,.sphere:after{content:'';position:absolute;inset:16px;border:1px solid #9afaff88;border-radius:50%;transform:rotateX(65deg)}
+.sphere:after{transform:rotateY(65deg) rotateZ(25deg)}
+@keyframes spherePulse{50%{transform:scale(1.045);filter:brightness(1.2)}}
+.sphere.talking{animation:spherePulse .55s ease-in-out infinite}
 .mic{position:absolute;bottom:56px;left:50%;transform:translateX(-50%);width:150px;padding:12px 18px;border:1px solid #27e7ff77;border-radius:30px;display:flex;align-items:center;justify-content:center;gap:8px;color:#72f5ff;font-family:var(--font-display);font-size:.85rem;letter-spacing:.12em;box-shadow:0 0 30px #27e7ff22;background:#021016cc;cursor:pointer}
 .mic:hover{background:#27e7ff1e}
 .hud-bottom{position:absolute;bottom:16px;left:16px;right:16px;display:grid;grid-template-columns:210px 1fr 210px;gap:16px;align-items:end}
@@ -193,10 +203,10 @@ footer{padding:30px 0 50px;text-align:center;color:#5f838c;font-size:.8rem}
   .jarvis-shell{min-height:1040px}
   .jarvis-stage{min-height:900px}
   .jmodule{width:200px}
-  .m1,.m2{left:12px}.m4{right:12px}
+  .m1,.m2,.m3{left:12px}.m4,.m5,.m6{right:12px}
   .core-wrap{width:320px;height:320px}
-  #jsphere{width:230px;height:230px}
-  .c1,.c2{left:200px;width:120px}.c4{right:200px;width:120px}
+  .sphere{width:135px;height:135px}
+  .c1,.c2,.c3{left:200px;width:120px}.c4,.c5,.c6{right:200px;width:120px}
   .hud-bottom{grid-template-columns:1fr 1fr}
   .centermark{display:none}
 }
@@ -210,14 +220,13 @@ footer{padding:30px 0 50px;text-align:center;color:#5f838c;font-size:.8rem}
   .jmodule{width:calc(50% - 16px);min-height:108px;padding:14px}
   .jmodule h3{font-size:.66rem;margin-top:36px}
   .jmodule p{font-size:.55rem}
-  .m1,.m4{top:130px}.m2{top:290px}
+  .m1,.m4{top:130px}.m2,.m5{top:290px}.m3,.m6{top:450px}
   .core-wrap{top:68%;width:290px;height:290px}
-  #jsphere{width:210px;height:210px}
   .mic{bottom:40px}
   .wave{left:18%;right:18%;top:88px}
   .wave-label{font-size:.72rem}
   .hud-bottom{display:none}
-  .c1,.c2,.c4{display:none}
+  .c1,.c2,.c3,.c4,.c5,.c6{display:none}
   .hero h1{font-size:3.2rem}
   .visual{height:280px}
   .calgrid{min-width:640px}
@@ -232,6 +241,7 @@ footer{padding:30px 0 50px;text-align:center;color:#5f838c;font-size:.8rem}
   <div class="links">
     <button class="active" onclick="tab('home',this)">Home</button>
     <button onclick="tab('about',this)">About</button>
+    <button onclick="tab('education',this)">Education</button>
     <button onclick="tab('experience',this)">Experience</button>
     <button onclick="tab('calendar',this)">Calendar</button>
     <button onclick="tab('jarvis',this)">JARVIS</button>
@@ -274,34 +284,42 @@ footer{padding:30px 0 50px;text-align:center;color:#5f838c;font-size:.8rem}
       <div class="card"><h3>R&amp;D</h3><p>Energy storage research covering sodium-ion batteries, supercapacitors, materials and advanced characterisation.</p>
         <div style="margin-top:10px"><span class="tag">Batteries</span><span class="tag">Materials</span><span class="tag">Research</span><span class="tag">2 pending patents</span></div></div>
     </div>
+    <div class="connect connect-grid" style="margin-top:30px">
+      <a href="https://www.linkedin.com/in/xavier-mascarenhas-1676471aa/" target="_blank" rel="noopener">🔗 LinkedIn Profile</a>
+      <a href="mailto:xavier.mascarenhas.energy@gmail.com">✉ xavier.mascarenhas.energy@gmail.com</a>
+      <a href="tel:+351936111602">☎ +351 936 111 602</a>
+    </div>
+  </section>
 
-    <h3 style="margin-top:34px;font-size:1.15rem">Developed R&amp;D projects &amp; publications</h3>
-    <div class="grid3" style="margin-top:14px">
-      <div class="card"><div class="pub-row" style="border:0;margin:0;padding:0">📄 <a class="linktag" href="https://www.sciencedirect.com/science/article/abs/pii/S2468606923001880" target="_blank" rel="noopener">Journal article — ScienceDirect</a></div></div>
-      <div class="card"><div class="pub-row" style="border:0;margin:0;padding:0">📰 <a class="linktag" href="https://www.simoldes.com/a-1a-celula-de-iao-de-sodio-made-in-portugal/" target="_blank" rel="noopener">Press feature — sodium-ion cell (Simoldes)</a></div></div>
-      <div class="card"><div class="pub-row" style="border:0;margin:0;padding:0">🗂 <a class="linktag" href="https://run.unl.pt/entities/publication/286bc358-da7b-4fc2-baad-63b53c07d7eb" target="_blank" rel="noopener">NOVA repository — research record</a></div></div>
+  <!-- EDUCATION -->
+  <section id="education" hidden>
+    <div class="ey">Education</div>
+    <h2 class="section-title">Micro &amp; Nanotechnology Engineering</h2>
+    <p class="sub">Education objectives</p>
+    <div class="card">
+      <p style="color:#c5dbe1;line-height:1.75;margin:0">Micro and Nanotechnology Engineers are at the forefront of research and development across a wide range of technologies, leveraging the unique properties of nanoscale materials and systems. The program is supported by a comprehensive array of highly specialised laboratories equipped with cutting-edge technology, including state-of-the-art facilities for nanofabrication and micro/nanoelectronics.</p>
     </div>
 
-    <h3 style="margin-top:34px;font-size:1.15rem">Education</h3>
-    <div class="edu-hero" style="margin-top:14px">
+    <div class="edu-hero" style="margin-top:20px">
       <div class="card edu-card">
         <div class="edu-icon">🎓</div>
         <div>
           <h3>Micro and Nanotechnology Engineering</h3>
           <div class="edu-meta">FCT NOVA (UNL), Portugal</div>
-          <p style="margin:0 0 12px">Micro and Nanotechnology Engineers are at the forefront of research and development across a wide range of technologies, leveraging the unique properties of nanoscale materials and systems. The program is supported by a comprehensive array of highly specialised laboratories equipped with cutting-edge technology, including state-of-the-art facilities for nanofabrication and micro/nanoelectronics.</p>
+          <p style="margin:0">Foundation in nanoscale materials, nanofabrication and micro/nanoelectronics — the technical base for a later career in advanced materials R&amp;D and, subsequently, engineering programme controls.</p>
+        </div>
+      </div>
+      <div class="card edu-card">
+        <div class="edu-icon">🔬</div>
+        <div>
+          <h3>Master's Thesis — Nanomaterials for EDLC Supercapacitors</h3>
+          <div class="edu-meta">Politecnico di Torino, Italy &nbsp;·&nbsp; Grade 19/20</div>
+          <p style="margin:0">Research into free-standing electrode and electrolyte materials for EDLC supercapacitors — the foundation for later work on Project Hydes and sodium-ion battery materials at VGColab.</p>
           <div class="pub-row">
-            📄 <a class="linktag" href="https://run.unl.pt/entities/publication/286bc358-da7b-4fc2-baad-63b53c07d7eb" target="_blank" rel="noopener">MoS2 nanosheets as interlayer in Li-S batteries</a>
+            📄 <a class="linktag" href="https://run.unl.pt/entities/publication/286bc358-da7b-4fc2-baad-63b53c07d7eb" target="_blank" rel="noopener">Read the thesis / research record — NOVA Repository</a>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="connect connect-grid" style="margin-top:30px">
-      <a class="btn primary" href="assets/Xavier_Mascarenhas_CV.pdf" download>⭳ Download CV</a>
-      <a href="https://www.linkedin.com/in/xavier-mascarenhas-1676471aa/" target="_blank" rel="noopener">🔗 LinkedIn Profile</a>
-      <a href="mailto:xavier.mascarenhas.energy@gmail.com">✉ xavier.mascarenhas.energy@gmail.com</a>
-      <a href="tel:+351936111602">☎ +351 936 111 602</a>
     </div>
   </section>
 
@@ -311,15 +329,15 @@ footer{padding:30px 0 50px;text-align:center;color:#5f838c;font-size:.8rem}
     <h2 class="section-title">From scientific R&amp;D to operational leadership.</h2>
     <p class="sub">Click a role for the full detail — the macro view first, the specifics on demand.</p>
 
-    <div class="xp-card" id="xp-ohl">
-      <div class="xp-head" onclick="toggleXp('xp-ohl')">
+    <div class="xp-card" id="xp-gaeltec">
+      <div class="xp-head" onclick="toggleXp('xp-gaeltec')">
         <div class="xp-titles">
-          <h3 class="role-now">OHL Planning &amp; Project Controls Engineer</h3>
+          <h3><span class="role-now">OHL Planning &amp; Project Controls Engineer</span><span class="role-arrow">←</span>Planning Engineer</h3>
           <div class="co"><a class="linktag" href="https://www.gaeltecutilities.com/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Gaeltec Utilities UK</a> · SP Energy Networks OHL framework, on behalf of <a class="linktag" href="https://www.scottishpower.co.uk/" target="_blank" rel="noopener" onclick="event.stopPropagation()">ScottishPower</a> · Scotland</div>
-          <div class="progress-chip">Promoted from <b>Planning Engineer</b> <span class="mono">Sept 2026</span></div>
+          <div class="progress-chip">Planning Engineer <span class="mono">2025–2026</span> → <b>OHL Planning &amp; Project Controls Engineer</b> <span class="mono">2026–Present</span></div>
         </div>
         <div style="display:flex;align-items:center;gap:14px">
-          <div class="xp-date">SEPT 2026 — PRESENT</div>
+          <div class="xp-date">2025 — PRESENT</div>
           <div class="xp-toggle">+</div>
         </div>
       </div>
@@ -332,31 +350,6 @@ footer{padding:30px 0 50px;text-align:center;color:#5f838c;font-size:.8rem}
           <li><b>KPI &amp; Performance Reporting:</b> produce weekly/monthly executive dashboards and trend reports, giving management and clients actionable intelligence on outputs, right-first-time evidence and resource forecasting.</li>
           <li><b>Digital Systems &amp; Process Optimisation:</b> integrate and validate data across Excel and Power BI to automate workflows, support ISO 27001 data compliance, and standardise project controls across teams.</li>
           <li><b>Automation &amp; Reporting Tools:</b> built the company's first Python/Streamlit dashboards for job tracking and costing, plus a searchable SQLite database of Target Price project data across three operating areas.</li>
-        </ul>
-      </div></div>
-    </div>
-
-    <div class="xp-card" id="xp-planning">
-      <div class="xp-head" onclick="toggleXp('xp-planning')">
-        <div class="xp-titles">
-          <h3>Planning Engineer</h3>
-          <div class="co"><a class="linktag" href="https://www.gaeltecutilities.com/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Gaeltec Utilities UK</a> · SP Energy Networks OHL framework, on behalf of <a class="linktag" href="https://www.scottishpower.co.uk/" target="_blank" rel="noopener" onclick="event.stopPropagation()">ScottishPower</a> · Scotland</div>
-          <div class="progress-chip">Promoted to <b>OHL Planning &amp; Project Controls Engineer</b> <span class="mono">Sept 2026</span></div>
-        </div>
-        <div style="display:flex;align-items:center;gap:14px">
-          <div class="xp-date">2025 — SEPT 2026</div>
-          <div class="xp-toggle">+</div>
-        </div>
-      </div>
-      <div class="xp-body"><div class="xp-body-in">
-        <p class="macro">Planned and coordinated grid outages across seven field teams, aligning permits, access, resources and materials so that programme dates held, while building the digital tools that later underpinned the team's project controls.</p>
-        <ul>
-          <li><b>Outage &amp; Resource Coordination:</b> planned and coordinated grid outages across seven field teams, aligning permits, access, resources and materials so that programme dates held.</li>
-          <li><b>Client Reporting:</b> presented weekly delivery results directly to SP Energy Networks and produced the KPI and output packs giving OHL Management clear visibility of performance, output and resource forecasting.</li>
-          <li><b>Process Automation:</b> automated the weekly and monthly planning cycle in Python — covering the master control file, workbank, outage calendar and outputs.</li>
-          <li><b>Dashboards:</b> built the company's first cross-analysis dashboards for job tracking, job costing and materials.</li>
-          <li><b>Target Price Database:</b> developed a database consolidating Target Price project data across several operating areas, making it searchable for the first time rather than locked in individual workbooks.</li>
-          <li><b>Permits &amp; Access:</b> managed permit and access sequencing to keep field teams unblocked and programme dates protected.</li>
         </ul>
       </div></div>
     </div>
@@ -457,17 +450,21 @@ footer{padding:30px 0 50px;text-align:center;color:#5f838c;font-size:.8rem}
       </div>
       <div class="jarvis-stage">
         <div class="wave"></div>
-        <div class="wave-label" id="waveLabel">GOOD DAY, SIR</div>
+        <div class="wave-label">GOOD DAY, SIR</div>
 
-        <button class="jmodule m1" onclick="tab('about')"><div class="jicon">◈</div><h3>ABOUT</h3><p>PROFILE · EDUCATION · R&amp;D</p></button>
-        <button class="jmodule m2" onclick="tab('experience')"><div class="jicon">⌁</div><h3>EXPERIENCE</h3><p>CAREER PATH</p></button>
+        <button class="jmodule m1" onclick="tab('education')"><div class="jicon">🎓</div><h3>EDUCATION</h3><p>MICRO &amp; NANOTECHNOLOGY</p></button>
+        <button class="jmodule m2" onclick="openExperience('xp-gaeltec')"><div class="jicon">⌁</div><h3>PLANNING ENGINEER</h3><p>GAELTEC · OHL PROGRAMME</p></button>
+        <button class="jmodule m3" onclick="openExperience('xp-vgcolab')"><div class="jicon">🧪</div><h3>R&amp;D ENGINEER</h3><p>VGCOLAB · ENERGY STORAGE</p></button>
         <button class="jmodule m4" onclick="tab('calendar')"><div class="jicon">▦</div><h3>CALENDAR</h3><p>CHECK AVAILABILITY</p></button>
+        <a class="jmodule m5" href="assets/Xavier_Mascarenhas_CV.pdf" download><div class="jicon">⭳</div><h3>DOWNLOAD CV</h3><p>FULL RESUME · PDF</p></a>
+        <a class="jmodule m6" href="https://www.linkedin.com/in/xavier-mascarenhas-1676471aa/" target="_blank" rel="noopener"><div class="jicon">🔗</div><h3>CONNECT</h3><p>LINKEDIN PROFILE</p></a>
 
-        <div class="connector c1"></div><div class="connector c2"></div>
-        <div class="connector c4"></div>
+        <div class="connector c1"></div><div class="connector c2"></div><div class="connector c3"></div>
+        <div class="connector c4"></div><div class="connector c5"></div><div class="connector c6"></div>
 
         <div class="core-wrap">
-          <canvas id="jsphere" width="320" height="320"></canvas>
+          <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+          <div class="sphere" id="jsphere"></div>
         </div>
         <button class="mic" id="jarvisActivate" onclick="activateJarvis()">● ACTIVATE</button>
 
@@ -486,7 +483,7 @@ footer{padding:30px 0 50px;text-align:center;color:#5f838c;font-size:.8rem}
 
 <script>
 /* ---------- tabs ---------- */
-const ids=['home','about','experience','calendar','jarvis'];
+const ids=['home','about','education','experience','calendar','jarvis'];
 function tab(id,btn){
   ids.forEach(x=>{const el=document.getElementById(x); if(x===id){el.hidden=false; el.classList.add('fadein');} else {el.hidden=true; el.classList.remove('fadein');}});
   document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
@@ -567,117 +564,6 @@ function prepareBooking(via){
   r.innerHTML='<div class="preview"><b>Draft prepared for '+chosen.day+' at '+chosen.time+':</b>\n\n'+body+'</div>';
 }
 
-/* ---------- JARVIS 3D wireframe sphere ---------- */
-(function(){
-  const canvas=document.getElementById('jsphere');
-  if(!canvas) return;
-  const ctx=canvas.getContext('2d');
-  let W=canvas.width, H=canvas.height;
-
-  // Build an icosphere (icosahedron, subdivided once) for a geodesic look.
-  const t=(1+Math.sqrt(5))/2;
-  let verts=[
-    [-1,t,0],[1,t,0],[-1,-t,0],[1,-t,0],
-    [0,-1,t],[0,1,t],[0,-1,-t],[0,1,-t],
-    [t,0,-1],[t,0,1],[-t,0,-1],[-t,0,1]
-  ];
-  let faces=[
-    [0,11,5],[0,5,1],[0,1,7],[0,7,10],[0,10,11],
-    [1,5,9],[5,11,4],[11,10,2],[10,7,6],[7,1,8],
-    [3,9,4],[3,4,2],[3,2,6],[3,6,8],[3,8,9],
-    [4,9,5],[2,4,11],[6,2,10],[8,6,7],[9,8,1]
-  ];
-  function normalize(v){const l=Math.hypot(v[0],v[1],v[2]);return [v[0]/l,v[1]/l,v[2]/l];}
-  function midpoint(a,b){return normalize([(a[0]+b[0])/2,(a[1]+b[1])/2,(a[2]+b[2])/2]);}
-  verts=verts.map(normalize);
-  // one subdivision for ~42-node geodesic density
-  const midCache={};
-  function getMid(i,j){
-    const key=i<j?i+'_'+j:j+'_'+i;
-    if(midCache[key]!==undefined) return midCache[key];
-    const m=midpoint(verts[i],verts[j]);
-    verts.push(m);
-    const idx=verts.length-1;
-    midCache[key]=idx;
-    return idx;
-  }
-  const newFaces=[];
-  const edges=new Set();
-  faces.forEach(f=>{
-    const a=getMid(f[0],f[1]), b=getMid(f[1],f[2]), c=getMid(f[2],f[0]);
-    newFaces.push([f[0],a,c],[f[1],b,a],[f[2],c,b],[a,b,c]);
-  });
-  newFaces.forEach(f=>{
-    [[f[0],f[1]],[f[1],f[2]],[f[2],f[0]]].forEach(([i,j])=>{
-      edges.add(i<j?i+'_'+j:j+'_'+i);
-    });
-  });
-  const edgeList=[...edges].map(k=>k.split('_').map(Number));
-
-  let angleY=0, angleX=0.35;
-  let talking=false;
-  window.setJarvisTalking=v=>{ talking=v; canvas.classList.toggle('talking',v); };
-
-  function project(v,scale,cx,cy){
-    // rotate around Y then X
-    let [x,y,z]=v;
-    let cosY=Math.cos(angleY), sinY=Math.sin(angleY);
-    let x1=x*cosY - z*sinY, z1=x*sinY + z*cosY;
-    let cosX=Math.cos(angleX), sinX=Math.sin(angleX);
-    let y1=y*cosX - z1*sinX, z2=y*sinX + z1*cosX;
-    const persp=1/(2.6 - z2);
-    return { x: cx + x1*scale*persp, y: cy + y1*scale*persp, z: z2, persp };
-  }
-
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    const cx=W/2, cy=H*0.42, scale=W*0.34;
-    const pts=verts.map(v=>project(v,scale,cx,cy));
-
-    // reflection (faded, mirrored copy beneath, no red)
-    const floorY=H*0.86;
-    ctx.save();
-    ctx.globalAlpha=0.16;
-    edgeList.forEach(([i,j])=>{
-      const a=pts[i], b=pts[j];
-      const ay=floorY+(floorY-a.y)*0.55, by=floorY+(floorY-b.y)*0.55;
-      const grad=ctx.createLinearGradient(a.x,ay,b.x,by);
-      grad.addColorStop(0,'rgba(39,231,255,.5)');
-      grad.addColorStop(1,'rgba(39,231,255,0)');
-      ctx.strokeStyle=grad;
-      ctx.lineWidth=1;
-      ctx.beginPath(); ctx.moveTo(a.x,ay); ctx.lineTo(b.x,by); ctx.stroke();
-    });
-    ctx.restore();
-
-    // wireframe edges, depth-shaded cyan/blue glow
-    const glow = talking ? 1.35 : 1;
-    edgeList.forEach(([i,j])=>{
-      const a=pts[i], b=pts[j];
-      const depth=(a.z+b.z)/2;
-      const alpha=Math.max(0.12,Math.min(1,(depth+1)/2))*glow;
-      ctx.strokeStyle='rgba(110,240,255,'+Math.min(alpha,1)+')';
-      ctx.lineWidth=depth>0?1.4:0.7;
-      ctx.shadowColor='#27e7ff';
-      ctx.shadowBlur=depth>0?9:2;
-      ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
-    });
-    ctx.shadowBlur=0;
-
-    // nodes
-    pts.forEach(p=>{
-      const r=p.z>0?2.6:1.3;
-      ctx.beginPath();
-      ctx.fillStyle=p.z>0?'rgba(200,255,255,'+(0.55+p.z*0.4)*glow+')':'rgba(80,200,220,.35)';
-      ctx.arc(p.x,p.y,r,0,Math.PI*2);
-      ctx.fill();
-    });
-
-    angleY += talking?0.014:0.006;
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
 
 /* ---------- JARVIS voice ---------- */
 let jarvisReady=false;
@@ -690,59 +576,25 @@ function pickVoice(){
      || voices[0];
 }
 function speakGreeting(){
-  if(!('speechSynthesis' in window)){ startVoiceCommand(); return; }
+  if(!('speechSynthesis' in window)) return;
+  const sphere=document.getElementById('jsphere');
   const utter=new SpeechSynthesisUtterance("Hello sir, how is your day going? Would you like to know more about Xavier Mascarenhas?");
   const v=pickVoice();
   if(v) utter.voice=v;
   utter.rate=0.9; utter.pitch=0.75; utter.volume=1;
-  utter.onstart=()=>{ if(window.setJarvisTalking) setJarvisTalking(true); };
-  utter.onend=()=>{ if(window.setJarvisTalking) setJarvisTalking(false); startVoiceCommand(); };
+  utter.onstart=()=>sphere.classList.add('talking');
+  utter.onend=()=>sphere.classList.remove('talking');
   speechSynthesis.cancel();
   speechSynthesis.speak(utter);
 }
 function activateJarvis(){
-  if(!('speechSynthesis' in window)){ startVoiceCommand(); return; }
+  if(!('speechSynthesis' in window)){ alert('Voice is not supported in this browser.'); return; }
   if(speechSynthesis.getVoices().length===0){
     speechSynthesis.onvoiceschanged=()=>{ if(!jarvisReady){ jarvisReady=true; speakGreeting(); } };
     setTimeout(()=>{ if(!jarvisReady){ jarvisReady=true; speakGreeting(); } },400);
   } else {
     speakGreeting();
   }
-}
-
-/* ---------- JARVIS voice-command navigation ---------- */
-const VOICE_TARGETS=[
-  {tab:'about',    words:['about','education','profile','background','degree','nanotechnology']},
-  {tab:'experience',words:['experience','work','career','job','planning engineer','ohl']},
-  {tab:'calendar', words:['calendar','availability','schedule','meeting','book','interview']},
-  {tab:'home',     words:['home']},
-  {tab:'jarvis',   words:['jarvis']}
-];
-function matchVoiceTab(transcript){
-  const s=transcript.toLowerCase();
-  for(const t of VOICE_TARGETS){ if(t.words.some(w=>s.includes(w))) return t.tab; }
-  return null;
-}
-function startVoiceCommand(){
-  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  const label=document.getElementById('waveLabel');
-  const mic=document.getElementById('jarvisActivate');
-  if(!SR){ if(label) label.textContent='SAY A TAB NAME (VOICE INPUT UNSUPPORTED)'; return; }
-  const rec=new SR();
-  rec.lang='en-GB';
-  rec.interimResults=false;
-  rec.maxAlternatives=3;
-  if(mic) mic.textContent='● LISTENING…';
-  if(label) label.textContent='LISTENING — SAY ABOUT / EXPERIENCE / CALENDAR';
-  rec.onresult=(e)=>{
-    const said=e.results[0][0].transcript;
-    const target=matchVoiceTab(said);
-    if(label) label.textContent = target ? ('HEARD: "'+said+'" → OPENING '+target.toUpperCase()) : ('HEARD: "'+said+'" — NO MATCH');
-    if(target) setTimeout(()=>tab(target),450);
-  };
-  rec.onerror=()=>{ if(label) label.textContent='GOOD DAY, SIR'; };
-  rec.onend=()=>{ if(mic) mic.textContent='● ACTIVATE'; setTimeout(()=>{ if(label) label.textContent='GOOD DAY, SIR'; },3000); };
-  try{ rec.start(); }catch(e){}
 }
 </script>
 
