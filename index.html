@@ -684,17 +684,19 @@ let jarvisReady=false;
 function pickVoice(){
   const voices=window.speechSynthesis ? speechSynthesis.getVoices() : [];
   if(!voices.length) return null;
-  return voices.find(v=>/en-GB/i.test(v.lang) && /male|daniel|arthur|george|oliver|ryan/i.test(v.name))
+  // Prefer a British English male voice — closest browsers/OSes get to an "old man" character voice.
+  return voices.find(v=>/en-GB/i.test(v.lang) && /male|daniel|arthur|george|oliver|ryan|male 1|male 2/i.test(v.name))
+     || voices.find(v=>/en-GB/i.test(v.lang) && !/female|susan|serena|kate|fiona/i.test(v.name))
      || voices.find(v=>/en-GB/i.test(v.lang))
      || voices.find(v=>/^en/i.test(v.lang))
      || voices[0];
 }
 function speakGreeting(){
   if(!('speechSynthesis' in window)){ startVoiceCommand(); return; }
-  const utter=new SpeechSynthesisUtterance("Hello sir, how is your day going? Would you like to know more about Xavier Mascarenhas?");
+  const utter=new SpeechSynthesisUtterance("Hello sir, nice to have you here. What would you like to know about Xavier?");
   const v=pickVoice();
   if(v) utter.voice=v;
-  utter.rate=0.9; utter.pitch=0.75; utter.volume=1;
+  utter.rate=0.82; utter.pitch=0.62; utter.volume=1;
   utter.onstart=()=>{ if(window.setJarvisTalking) setJarvisTalking(true); };
   utter.onend=()=>{ if(window.setJarvisTalking) setJarvisTalking(false); startVoiceCommand(); };
   speechSynthesis.cancel();
@@ -718,10 +720,45 @@ const VOICE_TARGETS=[
   {tab:'home',     words:['home']},
   {tab:'jarvis',   words:['jarvis']}
 ];
+/* Levenshtein-distance based similarity, 0 (no match) – 1 (identical) */
+function levenshtein(a,b){
+  const m=a.length,n=b.length;
+  if(m===0) return n; if(n===0) return m;
+  const dp=Array.from({length:m+1},()=>new Array(n+1).fill(0));
+  for(let i=0;i<=m;i++) dp[i][0]=i;
+  for(let j=0;j<=n;j++) dp[0][j]=j;
+  for(let i=1;i<=m;i++){
+    for(let j=1;j<=n;j++){
+      dp[i][j]= a[i-1]===b[j-1] ? dp[i-1][j-1] : 1+Math.min(dp[i-1][j-1],dp[i-1][j],dp[i][j-1]);
+    }
+  }
+  return dp[m][n];
+}
+function similarity(a,b){
+  if(!a && !b) return 1;
+  return 1 - levenshtein(a,b)/Math.max(a.length,b.length,1);
+}
+/* Matches a spoken phrase to a tab even when it's not an exact word —
+   scores the whole utterance AND each individual word against every keyword,
+   and accepts the best match once it clears a 70% similarity threshold. */
+const VOICE_MATCH_THRESHOLD=0.7;
 function matchVoiceTab(transcript){
-  const s=transcript.toLowerCase();
-  for(const t of VOICE_TARGETS){ if(t.words.some(w=>s.includes(w))) return t.tab; }
-  return null;
+  const s=transcript.toLowerCase().trim().replace(/[^\w\s]/g,'');
+  if(!s) return null;
+  const words=s.split(/\s+/);
+  let best={tab:null,score:0};
+  VOICE_TARGETS.forEach(t=>{
+    t.words.forEach(kw=>{
+      if(s.includes(kw)){ if(best.score<1) best={tab:t.tab,score:1}; return; }
+      const scFull=similarity(s,kw);
+      if(scFull>best.score) best={tab:t.tab,score:scFull};
+      words.forEach(w=>{
+        const scWord=similarity(w,kw);
+        if(scWord>best.score) best={tab:t.tab,score:scWord};
+      });
+    });
+  });
+  return best.score>=VOICE_MATCH_THRESHOLD ? best.tab : null;
 }
 function startVoiceCommand(){
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
@@ -737,8 +774,9 @@ function startVoiceCommand(){
   rec.onresult=(e)=>{
     const said=e.results[0][0].transcript;
     const target=matchVoiceTab(said);
-    if(label) label.textContent = target ? ('HEARD: "'+said+'" → OPENING '+target.toUpperCase()) : ('HEARD: "'+said+'" — NO MATCH');
+    if(label) label.textContent = target ? ('HEARD: "'+said+'" → OPENING '+target.toUpperCase()) : ('HEARD: "'+said+'" — NO MATCH (TRY AGAIN)');
     if(target) setTimeout(()=>tab(target),450);
+    else setTimeout(()=>startVoiceCommand(),900);
   };
   rec.onerror=()=>{ if(label) label.textContent='GOOD DAY, SIR'; };
   rec.onend=()=>{ if(mic) mic.textContent='● ACTIVATE'; setTimeout(()=>{ if(label) label.textContent='GOOD DAY, SIR'; },3000); };
